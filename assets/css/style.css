@@ -1,0 +1,9 @@
+body {
+ background-image:url(assets/images/Hangmanframe.png);
+ background-color: grey;
+ text-align: center;
+}
+p {
+	font-size: 30px;
+	margin-top: 20px;
+}

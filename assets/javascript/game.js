@@ -1,9 +1,11 @@
 var wordList = [
-    "jerome",
-    "neena",
-    "darion",
-    "lou",
-    "greg"
+    "pizza",
+    "clarity",
+    "peace",
+    "rosemary",
+    "thyme",
+    "sage",
+
 ];
 
 var chosenWord = ""; //when select word at random from the wordList
@@ -24,11 +26,11 @@ var numGuesses = 9; //only have 9 lives
 var numGuesses = 9;
 
 function startGame() { 
-	var blanksAndSuccesses = [];
-	var wrongGuesses = [];
+	var blanksAndSuccesses = []; //makes empty at start
+	var wrongGuesses = []; //makes empty at start
 
 	chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
-	lettersInChosenWord = chosenWord.split();
+	lettersInChosenWord = chosenWord.split("");
 	numBlanks = lettersInChosenWord.length;
 	console.log(chosenWord);
 	console.log(numBlanks);
@@ -79,7 +81,7 @@ function roundComplete() {
     */
     document.getElementById('word-blank').innerHTML = blanksAndSuccesses.join(" ");
     document.getElementById('guesses-left').innerHTML = numGuesses;
-    document.getElementById('wrong-guesses').innerHTML =wrongGuesses.join(" ");
+    document.getElementById('wrong-guesses').innerHTML = wrongGuesses.join(" ");
 
 
 
