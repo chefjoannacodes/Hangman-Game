@@ -4,7 +4,7 @@
 ## Live Link (If relevant)
  - www.example.com
 
-## This program works like hangman in real-time. The user chooses a letter on the keyboard in attempt to guess the correct letters in the word. The number of blanks on the screen denote the number of letters in the word. The user has 9 tries to guess all the letters correctly. If the user guesses the letters incorrectly, a part of the hangman figure will appear on the screen. If the letters are not guessed correctly in 9 tries, the hangman figure is hanged and the user loses. If the letters are guessed correctly before the 10th try, the user wins and the game resets to a 9 guesses and another random word is choosen to start the game. 
+## This program works like hangman in real-time. The user touches a letter on the keyboard in attempt to guess the correct letters in the word. The number of blanks (underscores) on the screen denote the number of letters in the word. The user has 9 tries to guess all the letters correctly. If the user guesses the letters incorrectly, a part of the hangman figure will appear on the screen. If the letters are not guessed correctly in 9 tries, the hangman figure is hanged and the user loses. If the letters are guessed correctly before the 10th try, the user wins and the game resets to 9 guesses and another random word is choosen to start the game. 
 
 ## Requirements
 #### Using HTML, CSS, and Javascript, make a hangman game,
@@ -40,6 +40,7 @@
 ## Code Explaination
 - I used a for-loop to determine if the user's letter key input was in the chosen word. If the letterInWord variable was true, our blanksAndSuccesses would hold that letter in it's array. If letterInWord was false, we would execute our else statement. In this case, our number of guesses would increase, and our wrongGuesses variable would hold the wrong letters guessed in its array. 
 
+```
 var chosenWord = ""; //when select word at random from the wordList
 
 var letterInChosenWord = []; //word that is played on is going to break it up into letters
@@ -63,7 +64,7 @@ var letterInWord = false;
         numGuesses --;
         wrongGuesses.push(letter);
 }}
-
+```
 
 
 

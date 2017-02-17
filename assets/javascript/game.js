@@ -20,17 +20,26 @@ var wrongGuesses = []; //stores the wrong letter guesses
 
 var winCounter = 0;
 var lossCounter = 1;
-var numGuesses = 9; //only have 9 lives
+var numGuesses = []; //only have 9 lives
+
+//var pressStart = "";
+
+//var hangmanImg = [];
 
 
 
+/*
+    1. select a word at random
+    2. want to break up that random word into letters and replace them with underscores
+    3. we want to add those underscores to the HTML
+    4. numguesses always equals 9, and blankandsuccess is an empty array. and wrongguesses is empty as well
+    */
 
 
 function startGame() { 
-    
     numGuesses = 9;
-	blanksAndSuccesses = []; //makes empty at start
-	wrongGuesses = []; //makes empty at start
+    blanksAndSuccesses = []; //makes empty at start
+    wrongGuesses = []; //makes empty at start
 
 	chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
 	lettersInChosenWord = chosenWord.split("");
@@ -47,28 +56,26 @@ function startGame() {
 }
 
 function checkLetters(letter){ //function that gets input from the user
-    /*
-    1. Compare the letter the user picks matches any of the letters in the word
-    2. I want a conditional statement to determine if the letter the user picked is in the word. If so, do something, if not, do something else.
-    3. If the user is wrong we want to decrease the numGuesses variables by one
-    */
+    
     var letterInWord = false;
-
-    for (var i = 0; i < numBlanks; i++) {
-        if (chosenWord[i] === letter) {
+//1. Compare the letter the user picks matches any of the letters in the word
+//2. I want a conditional statement to determine if the letter the user picked is in the word. If so, do something, if not, do something else.
+    for(var i = 0; i < numBlanks; i++){
+        if (chosenWord[i] === letter){
             letterInWord = true;
 
         }
     }
 //will only run if above for loop is true
-    if (letterInWord) {
+    if(letterInWord){
         for (i = 0; i < numBlanks; i++) {
             if (chosenWord[i] === letter) {
                 blanksAndSuccesses[i] = letter;
             }
             console.log("inside our checkletter function", blanksAndSuccesses);
         }
-    } else { //if letter is wrong
+        //3. If the user is wrong we want to decrease the numGuesses variables by one
+    }else{ //if letter is wrong
         numGuesses --;
         wrongGuesses.push(letter);
     }
@@ -90,7 +97,8 @@ function roundComplete() {
 
 
 
-
+        console.log(lettersInChosenWord);
+        console.log(blanksAndSuccesses);
     	if(lettersInChosenWord.join(" ") === blanksAndSuccesses.join(" ")){
     		winCounter++;
     		alert("You win!!");
@@ -100,21 +108,25 @@ function roundComplete() {
     		document.getElementById('loss-counter').innerHTML = lossCounter ++;
     		document.getElementById('wrong-guesses').innerHTML = " ";
     		alert("you don't have anymore guesses left");
+            playButton.style.visibility = "visible";
     		startGame();
 
     	}
+
+
+    
+
 }
+    startGame(); 
+    
+    document.oneKeyUp = function(event){
+        
+        
+            //alert("press any key to start");
+            //console.log("starting game", startGame);
+            /*var anyLetter = String.fromCharCode(event.keyCode).toLowerCase();
+            alert ("Press any key to start");*/
 
-    /*
-    1. select a word at random
-    2. want to break up that random word into letters and replace them with underscores
-    3. we want to add those underscores to the HTML
-    4. numguesses always equals 9, and blankandsuccess is an empty array. and wrongguesses is empty as well
-    */
-
-
-    startGame();
-    document.oneKeyUp = function(event) {
         /*
         1. its going to take in the letter that we type in
         2. its going to pass it through the CheckLetter function
@@ -124,6 +136,16 @@ function roundComplete() {
         checkLetters(letterGuessed);
         roundComplete();
 
+        
+            
+
+}
+
+var reloadPage = function() {
+    startGame();
+    var playButton = document.getElementById('play');
+    playButton.style.visibility = "hidden";
+}
 
 
-    }
+    
