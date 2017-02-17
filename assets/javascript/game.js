@@ -53,7 +53,7 @@ function startGame() {
 	console.log(blanksAndSuccesses);
 	document.getElementById('word-blank').innerHTML = blanksAndSuccesses.join(" ");
 	document.getElementById('guesses-left').innerHtml = numGuesses;
-}
+};
 
 function checkLetters(letter){ //function that gets input from the user
     
@@ -80,7 +80,7 @@ function checkLetters(letter){ //function that gets input from the user
         wrongGuesses.push(letter);
     }
     console.log("our wrong guesses inside our checkletter function", wrongGuesses);
-}
+};
 /* to check if a letter is already in teh wrong guesses array. set up an if/else conditional that will run a for loop that will iterate ocer all teh letters and then use the if/else to check if it already exists. 
  */
 
@@ -116,10 +116,10 @@ function roundComplete() {
 
     
 
-}
+};
     startGame(); 
     
-    document.oneKeyUp = function(event){
+    document.onkeyup = function(){
         
         
             //alert("press any key to start");
@@ -136,15 +136,16 @@ function roundComplete() {
         checkLetters(letterGuessed);
         roundComplete();
 
+
         
             
 
-}
+};
 
 var reloadPage = function() {
-    startGame();
     var playButton = document.getElementById('play');
     playButton.style.visibility = "hidden";
+    startGame();
 }
 
 
