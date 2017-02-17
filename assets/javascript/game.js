@@ -23,11 +23,14 @@ var lossCounter = 1;
 var numGuesses = 9; //only have 9 lives
 
 
-var numGuesses = 9;
+
+
 
 function startGame() { 
-	var blanksAndSuccesses = []; //makes empty at start
-	var wrongGuesses = []; //makes empty at start
+    
+    numGuesses = 9;
+	blanksAndSuccesses = []; //makes empty at start
+	wrongGuesses = []; //makes empty at start
 
 	chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
 	lettersInChosenWord = chosenWord.split("");
@@ -36,14 +39,14 @@ function startGame() {
 	console.log(numBlanks);
 
 	for (var i = 0; i < numBlanks; i++) {
-	    blanksAndSuccesses.push("_")
+	    blanksAndSuccesses.push("_");
 	}
 	console.log(blanksAndSuccesses);
-	document.getElementById('word-blank').innerHTML = blanksAndSuccesses;
+	document.getElementById('word-blank').innerHTML = blanksAndSuccesses.join(" ");
 	document.getElementById('guesses-left').innerHtml = numGuesses;
 }
 
-function checkLetters(letter) { //function that gets input from the user
+function checkLetters(letter){ //function that gets input from the user
     /*
     1. Compare the letter the user picks matches any of the letters in the word
     2. I want a conditional statement to determine if the letter the user picked is in the word. If so, do something, if not, do something else.
@@ -57,17 +60,19 @@ function checkLetters(letter) { //function that gets input from the user
 
         }
     }
-
+//will only run if above for loop is true
     if (letterInWord) {
         for (i = 0; i < numBlanks; i++) {
             if (chosenWord[i] === letter) {
                 blanksAndSuccesses[i] = letter;
             }
+            console.log("inside our checkletter function", blanksAndSuccesses);
         }
-    } else {
+    } else { //if letter is wrong
         numGuesses --;
-        wrongGuesses.push(letter)
+        wrongGuesses.push(letter);
     }
+    console.log("our wrong guesses inside our checkletter function", wrongGuesses);
 }
 /* to check if a letter is already in teh wrong guesses array. set up an if/else conditional that will run a for loop that will iterate ocer all teh letters and then use the if/else to check if it already exists. 
  */
@@ -121,4 +126,4 @@ function roundComplete() {
 
 
 
-    };
+    }
