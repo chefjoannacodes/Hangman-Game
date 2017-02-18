@@ -10,7 +10,7 @@ var wordList = [
 
 var chosenWord = ""; //when select word at random from the wordList
 
-var letterInChosenWord = []; //word that is played on is going to break it up into letters
+var lettersInChosenWord = []; //word that is played on is going to break it up into letters
 
 var numBlanks = 0; //will hold the number of letters in the word
 
@@ -20,7 +20,7 @@ var wrongGuesses = []; //stores the wrong letter guesses
 
 var winCounter = 0;
 var lossCounter = 1;
-var numGuesses = []; //only have 9 lives
+var numGuesses = 9; //only have 9 lives
 
 //var pressStart = "";
 
@@ -109,7 +109,7 @@ function roundComplete() {
     		document.getElementById('wrong-guesses').innerHTML = " ";
     		alert("you don't have anymore guesses left");
             playButton.style.visibility = "visible";
-    		startGame();
+    		//startGame();
 
     	}
 
