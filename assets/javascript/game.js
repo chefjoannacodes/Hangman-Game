@@ -52,7 +52,9 @@ function startGame() {
 	}
 	console.log(blanksAndSuccesses);
 	document.getElementById('word-blank').innerHTML = blanksAndSuccesses.join(" ");
-	document.getElementById('guesses-left').innerHtml = numGuesses;
+	document.getElementById('guesses-left').innerHTML = numGuesses;
+    document.getElementById('wrong-guesses').innerHTML = wrongGuesses.join(" ");
+
 };
 
 function checkLetters(letter){ //function that gets input from the user
